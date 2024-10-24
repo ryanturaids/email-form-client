@@ -19,13 +19,16 @@ const App = () => {
     }
 
     try {
-      const response = await fetch(process.env.API_CALL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/send-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Error sending email.");
