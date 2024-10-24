@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./app.css";
-require("dotenv").config();
 
 const App = () => {
   const [name, setName] = useState("");
